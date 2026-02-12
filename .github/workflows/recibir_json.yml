@@ -15,7 +15,9 @@ jobs:
         run: echo "¡Evento recibido desde FastAPI!"
 
       - name: Mostrar el Payload
-        run: echo "${{ inputs.payload }}"
+        env:
+          MI_JSON: ${{ inputs.payload }}
+        run: echo "$MI_JSON"
 
       # - name: Acceder a un dato especifico
       #   # Simulamos que el orquestador usa el ID para algo
