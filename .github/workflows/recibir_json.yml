@@ -1,0 +1,22 @@
+name: Prueba de Recepción JSON
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        required: true
+        types: string
+
+jobs:
+  imprimir-datos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Saludar
+        run: echo "¡Evento recibido desde FastAPI!"
+
+      - name: Mostrar el Payload
+        run: echo "${{ inputs.payload }}"
+
+      # - name: Acceder a un dato especifico
+      #   # Simulamos que el orquestador usa el ID para algo
+      #   run: echo "Procesando documento ID ${{ github.event.client_payload.TIPO_DOCUMENTO.id_interno }}"
